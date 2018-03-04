@@ -12,3 +12,7 @@ Hab ich für meine ESP8266 Arduinos gebraucht.
 # benutzen
 Lade die getTxt.htm herrunter und öffne sie im Firefox. Dann kann man eine Text-Datei auswählen und schon wird sie in einen c-String konvertiert.
 Der c-String wird angezeigt und man kann ihn dann markieren und kopieren.
+
+oder mit diesem Link aufrufen:
+
+https://rawgit.com/polygontwist/convertTXT_forArduinoESP/master/getTxt.htm
