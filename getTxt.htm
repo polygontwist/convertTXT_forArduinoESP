@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Textconvert</title>
+	<style>
+	body{font-family:Verdana;}
+	a{width:60px;margin-left:10px;}
+	h1{font-size:12pt;}
+	</style>
+	<meta charset="utf-8">
+	
+	<script type="text/javascript">
+	//läuft schön im Firefox, Chrome, Edge
+	function gE(id){return document.getElementById(id)}
+
+	var handleFileSelect=function (){
+		var input = document.getElementById("picfileupload");
+			reader = new FileReader();
+		reader.onload = function(theFile) {
+				var i,s,data=this.result.split(String.fromCharCode(13));
+				//console.log(data);
+				ziel=gE("output");
+				ziel.innerHTML="const String textdatei=";
+				for(i=0;i<data.length;i++){
+					s=data[i];
+					s=s.split('//')[0];
+					s=s.trim();
+					while(s.startsWith(String.fromCharCode(9)) && s.length>0){
+						s=s.substr(1);
+					}
+					
+					if(s.length>0){
+						s=s.split('"').join('\\"');
+						s=s.split('<').join('&lt;');
+						s=s.split('>').join('&gt;');
+						ziel.innerHTML+='"'+s+'\\r\\n"<br>';
+					}
+				}
+				
+				/*for(var t=0;t<data.length;t++){
+					if(t/16==Math.round(t/16))ziel.innerHTML+="<br>";
+					c=data[t].charCodeAt(0);
+					ziel.innerHTML+="0x"
+					if(c<10)ziel.innerHTML+="0";
+					ziel.innerHTML+=Number(c).toString(16);
+					if(t<data.length-1)ziel.innerHTML+=",";
+					
+				}*/
+				ziel.innerHTML+=";";
+			};
+		reader.readAsBinaryString(input.files[0]);
+	}
+	</script>
+</head>
+<body id="body">
+Wähle eine Datei aus um sie Arduinogerecht (siehe data.h) in const String umzuwandeln<br />
+<input type="file" name="picfileupload" id="picfileupload" onchange="handleFileSelect()" />
+
+<p id="output">
+	
+</p>
+
+
+
+</body>
+</html>
