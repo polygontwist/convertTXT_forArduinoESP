@@ -1,7 +1,7 @@
-# convertTXT for Arduino (ESP)
+# convert TXT (.htm,.js) for Arduino (ESP)
 
 Konvertiert z.B. eine Textdate in ein c-String.
-Dabei werden folgendes entfert:
+Dabei wird folgendes entfert:
 * Leerzeichen am Anfang und Ende
 * Tabs am Anfang
 * Kommentare mit // 
