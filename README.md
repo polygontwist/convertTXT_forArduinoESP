@@ -15,4 +15,4 @@ Der c-String wird angezeigt und man kann ihn dann markieren und kopieren.
 
 oder mit diesem Link aufrufen:
 
-https://rawgit.com/polygontwist/convertTXT_forArduinoESP/master/getTxt.htm
+https://polygontwist.github.io/convertTXT_forArduinoESP/getTxt.htm
